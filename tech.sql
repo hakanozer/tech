@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: localhost
--- Üretim Zamanı: 07 Nis 2020, 06:39:25
+-- Üretim Zamanı: 08 Nis 2020, 16:10:19
 -- Sunucu sürümü: 10.4.6-MariaDB
 -- PHP Sürümü: 7.1.31
 
@@ -21,6 +21,37 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `tech`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `card`
+--
+
+CREATE TABLE `card` (
+  `cid` int(11) NOT NULL,
+  `cname` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `csurname` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `ctelephone` varchar(15) COLLATE utf8_turkish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `card`
+--
+
+INSERT INTO `card` (`cid`, `cname`, `csurname`, `ctelephone`) VALUES
+(3, 'Ahmet', 'Bilki', '05007008090');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `test`
+--
+
+CREATE TABLE `test` (
+  `tid` int(11) NOT NULL,
+  `tdata` varchar(255) COLLATE utf8_turkish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -54,11 +85,24 @@ INSERT INTO `user` (`uid`, `name`, `surname`, `udate`) VALUES
 (12, 'Ayşe', 'Bilsin', '2020-04-06 10:48:01'),
 (13, 'Ayşe', 'Bilsin', '2020-04-06 10:48:40'),
 (14, 'Ayşe', 'Bilsin', '2020-04-06 10:50:55'),
-(15, 'Ayşe', 'Bilsin', '2020-04-06 10:56:30');
+(15, 'Ayşe', 'Bilsin', '2020-04-06 10:56:30'),
+(16, 'a', 'b', '2020-04-08 10:22:52');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
+
+--
+-- Tablo için indeksler `card`
+--
+ALTER TABLE `card`
+  ADD PRIMARY KEY (`cid`);
+
+--
+-- Tablo için indeksler `test`
+--
+ALTER TABLE `test`
+  ADD PRIMARY KEY (`tid`);
 
 --
 -- Tablo için indeksler `user`
@@ -71,10 +115,22 @@ ALTER TABLE `user`
 --
 
 --
+-- Tablo için AUTO_INCREMENT değeri `card`
+--
+ALTER TABLE `card`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `test`
+--
+ALTER TABLE `test`
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Tablo için AUTO_INCREMENT değeri `user`
 --
 ALTER TABLE `user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
