@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: localhost
--- Üretim Zamanı: 08 Nis 2020, 16:10:19
+-- Üretim Zamanı: 09 Nis 2020, 18:05:22
 -- Sunucu sürümü: 10.4.6-MariaDB
 -- PHP Sürümü: 7.1.31
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `tech`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `admin`
+--
+
+CREATE TABLE `admin` (
+  `aid` int(11) NOT NULL,
+  `amail` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `apass` varchar(20) COLLATE utf8_turkish_ci NOT NULL,
+  `astatu` int(1) NOT NULL,
+  `arole` varchar(20) COLLATE utf8_turkish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `admin`
+--
+
+INSERT INTO `admin` (`aid`, `amail`, `apass`, `astatu`, `arole`) VALUES
+(1, 'ali@mail.com', '12345', 1, 'role_user'),
+(2, 'mehmet@mail.com', '12345', 1, 'role_product');
 
 -- --------------------------------------------------------
 
@@ -93,6 +115,12 @@ INSERT INTO `user` (`uid`, `name`, `surname`, `udate`) VALUES
 --
 
 --
+-- Tablo için indeksler `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`aid`);
+
+--
 -- Tablo için indeksler `card`
 --
 ALTER TABLE `card`
@@ -113,6 +141,12 @@ ALTER TABLE `user`
 --
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
+
+--
+-- Tablo için AUTO_INCREMENT değeri `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `card`
